@@ -34,4 +34,4 @@ class LectureSerializer(serializers.HyperlinkedModelSerializer):
 class StudentlectureSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Studentlecture
-        fields = ('url', 'id', 'student', 'lecture')
+        fields = ('url', 'id', 'lecture', 'student')

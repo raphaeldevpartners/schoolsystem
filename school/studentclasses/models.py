@@ -7,7 +7,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=20)
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} {self.student_code}'
+        return f'{self.student_code}'
 
 class Teacher(models.Model):
      teacher_code = models.CharField(max_length=20)
@@ -15,7 +15,7 @@ class Teacher(models.Model):
      last_name = models.CharField(max_length=20)
 
      def __str__(self):
-         return f'{self.first_name} {self.last_name} {self.teacher_code}'
+         return f'{self.teacher_code}'
 
 class Subject(models.Model):
      subject_name = models.CharField(max_length=20)
@@ -38,7 +38,7 @@ class Schedule(models.Model):
          return f'{self.time_start} {self.time_end}'
 
 class Lecture(models.Model):
-    subject = models.ForeignKey(Student)
+    subject = models.ForeignKey(Subject)
     teacher = models.ForeignKey(Teacher)
     schedule = models.ForeignKey(Schedule)
     lecture_name = models.CharField(max_length=20, default='Lecture for Dragons')
@@ -47,8 +47,8 @@ class Lecture(models.Model):
         return f'{self.lecture_name}'
 
 class Studentlecture(models.Model):
-    student = models.ForeignKey(Student)
-    lecture = models.ForeignKey(Lecture)
+    student = models.ForeignKey(Student, default='')
+    lecture = models.ForeignKey(Lecture, default='')
     studentlecture_name = models.CharField(max_length=20, default='ComputerScience Lectures')
 
     def __str__(self):

@@ -16,4 +16,5 @@ router.register('studentlectures', views.StudentlectureViewSet)
 # Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^custom/get/$', views.CustomGet.as_view()),
 ]
