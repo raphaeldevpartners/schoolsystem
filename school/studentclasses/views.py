@@ -5,7 +5,6 @@ from django.shortcuts import render
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from statsd.defaults.django import statsd
 
 from rest_framework import permissions, generics
 from rest_framework.viewsets import ModelViewSet
@@ -33,7 +32,6 @@ class StudentlectureViewSet(ModelViewSet):
         lecture_students = Studentlecture.objects.all().filter(lecture_id=self.kwargs['pk'])
         serializer = self.get_serializer(lecture_students, many=True)
         return Response(serializer.data)
-
 
 class LectureViewSet(ModelViewSet):
     """

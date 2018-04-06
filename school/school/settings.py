@@ -25,7 +25,7 @@ SECRET_KEY = '!l(_*ep+)w7#n7)5#jdb^&o3!z1)6@dtl70$fglp$o)8*d3rhj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -119,8 +119,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'
+# All settings common to all environments
+PROJECT_ROOT = 'http://raphaeldevpartners.pythonanywhere.com/'
+STATIC_URL = os.path.join(PROJECT_ROOT, '/static/')
